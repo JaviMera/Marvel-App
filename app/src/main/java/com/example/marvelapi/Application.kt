@@ -6,6 +6,7 @@ import com.example.marvelapi.network.MarvelCharactersInterface
 import com.example.marvelapi.network.repositories.NetworkCharactersInterface
 import com.example.marvelapi.network.repositories.NetworkCharactersRepository
 import okhttp3.OkHttpClient
+import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.component.KoinComponent
 import org.koin.core.context.startKoin
@@ -14,12 +15,15 @@ import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
 
 class Application : Application(), KoinComponent {
+
     override fun onCreate() {
         super.onCreate()
 
         startKoin{
-            module {
+            modules(
+                module{
 
+                androidContext(this@Application)
                 single{
                     provideRetrofit(get())
                 }
@@ -37,7 +41,7 @@ class Application : Application(), KoinComponent {
                 viewModel {
                     CharactersViewModel(get() as NetworkCharactersInterface)
                 }
-            }
+            })
         }
     }
 

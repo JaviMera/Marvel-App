@@ -1,5 +1,6 @@
 package com.example.marvelapi.network.repositories
 
+import android.util.Log
 import com.example.marvelapi.MarvelApiResult
 import com.example.marvelapi.models.CharactersErrorResponse
 import com.example.marvelapi.models.CharactersResponse
@@ -8,7 +9,7 @@ import com.google.gson.Gson
 import retrofit2.awaitResponse
 
 interface NetworkCharactersInterface {
-    suspend fun getAll() : MarvelApiResult<*>
+    suspend fun getAll(): MarvelApiResult<*>
 }
 
 class NetworkCharactersRepository(
@@ -22,7 +23,8 @@ class NetworkCharactersRepository(
             if(response.isSuccessful){
                 MarvelApiResult.Success(Gson().fromJson(response.body(), CharactersResponse::class.java))
             }else{
-                MarvelApiResult.Failure(Gson().fromJson(response.errorBody()?.string(), CharactersErrorResponse::class.java))
+                val errorBody = response.errorBody()?.string()
+                MarvelApiResult.Failure(Gson().fromJson(errorBody, CharactersErrorResponse::class.java))
             }
         }catch (exception: Exception){
             MarvelApiResult.Error(exception.localizedMessage)

@@ -32,7 +32,7 @@ class CharactersViewModel (
                         }
                         is MarvelApiResult.Failure -> {
                             val failureResponse = response.data as CharactersErrorResponse
-                            Log.i("CharactersViewModeL", failureResponse.error)
+                            Log.i("CharactersViewModeL", failureResponse.message)
                         }
                         is MarvelApiResult.Error -> {
                             Log.i("CharactersViewModeL", response.message!!)

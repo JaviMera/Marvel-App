@@ -1,6 +1,6 @@
 package com.example.marvelapi.models
 
 data class CharactersErrorResponse(
-    val error: String,
-    val code: Int
+    val message: String,
+    val code: String
 )

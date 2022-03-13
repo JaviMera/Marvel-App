@@ -1,5 +1,6 @@
 package com.example.marvelapi.network
 
+import android.util.Log
 import com.example.marvelapi.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.Response
@@ -22,7 +23,7 @@ class AuthInterceptor() : Interceptor {
         val url = req.url()
             .newBuilder()
             .addQueryParameter("ts", timestamp)
-            .addQueryParameter("apiKey", publicKey)
+            .addQueryParameter("apikey", publicKey)
             .addQueryParameter("hash", hash)
             .build()
 

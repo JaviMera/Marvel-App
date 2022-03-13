@@ -4,15 +4,20 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.example.marvelapi.network.repositories.NetworkCharactersInterface
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.math.BigInteger
+import java.security.MessageDigest
 
-class MainActivity : AppCompatActivity() {
+class MainActivity(
+) : AppCompatActivity() {
 
     private val charactersViewModel: CharactersViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         charactersViewModel.getCharacters()
 
         charactersViewModel.characters.observe(this, Observer {
