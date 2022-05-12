@@ -23,7 +23,7 @@ class CharactersViewModel (
             viewModelScope.launch {
 
                 try {
-                    when(val response = charactersRepository.getAll()){
+                    when(val response = charactersRepository.getAll(DEFAULT_OFFSET_VALUE)){
                         is MarvelApiResult.Success -> {
                             val characters = response.data as CharactersResponse
                             characters.data.results.let {
@@ -43,4 +43,8 @@ class CharactersViewModel (
                 }
             }
         }
+
+    companion object{
+        const val DEFAULT_OFFSET_VALUE = 0
+    }
 }

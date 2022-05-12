@@ -6,5 +6,5 @@ import retrofit2.http.Query
 
 interface MarvelCharactersInterface{
     @GET("v1/public/characters")
-    fun getCharacters(): Call<String>
+    fun getCharacters(@Query("offset") offset: Int): Call<String>
 }

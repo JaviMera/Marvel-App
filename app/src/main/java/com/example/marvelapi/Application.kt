@@ -31,15 +31,15 @@ class Application : Application(), KoinComponent {
                 factory { AuthInterceptor() }
                 factory { provideOkHttpClient(get()) }
                 factory {
-                    provideMarvelApi(get()) as MarvelCharactersInterface
+                    provideMarvelApi(get())
                 }
 
                 single{
-                    NetworkCharactersRepository(get() as MarvelCharactersInterface) as NetworkCharactersInterface
+                    NetworkCharactersRepository(get() as MarvelCharactersInterface)
                 }
 
                 viewModel {
-                    CharactersViewModel(get() as NetworkCharactersInterface)
+                    CharactersViewModel(get() as NetworkCharactersRepository)
                 }
             })
         }

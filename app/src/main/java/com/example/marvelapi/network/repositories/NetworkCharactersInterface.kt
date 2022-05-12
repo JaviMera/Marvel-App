@@ -9,17 +9,17 @@ import com.google.gson.Gson
 import retrofit2.awaitResponse
 
 interface NetworkCharactersInterface {
-    suspend fun getAll(): MarvelApiResult<*>
+    suspend fun getAll(offset: Int): MarvelApiResult<*>
 }
 
 class NetworkCharactersRepository(
     private val marvelCharactersInterface: MarvelCharactersInterface
 ) : NetworkCharactersInterface{
 
-    override suspend fun getAll(): MarvelApiResult<*> {
+    override suspend fun getAll(offset: Int): MarvelApiResult<*> {
 
         return try {
-            val response = marvelCharactersInterface.getCharacters().awaitResponse()
+            val response = marvelCharactersInterface.getCharacters(offset).awaitResponse()
             if(response.isSuccessful){
                 MarvelApiResult.Success(Gson().fromJson(response.body(), CharactersResponse::class.java))
             }else{
