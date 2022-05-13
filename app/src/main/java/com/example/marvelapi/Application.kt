@@ -1,6 +1,8 @@
 package com.example.marvelapi
 
 import android.app.Application
+import com.example.marvelapi.adapters.CharactersPagerInterface
+import com.example.marvelapi.adapters.CharactersPagerRepository
 import com.example.marvelapi.network.AuthInterceptor
 import com.example.marvelapi.network.MarvelCharactersInterface
 import com.example.marvelapi.network.repositories.NetworkCharactersInterface
@@ -35,11 +37,14 @@ class Application : Application(), KoinComponent {
                 }
 
                 single{
-                    NetworkCharactersRepository(get() as MarvelCharactersInterface)
+                    NetworkCharactersRepository(get() as MarvelCharactersInterface) as NetworkCharactersInterface
+                }
+                single{
+                    CharactersPagerRepository(get() as NetworkCharactersInterface) as CharactersPagerInterface
                 }
 
                 viewModel {
-                    CharactersViewModel(get() as NetworkCharactersRepository)
+                    CharactersViewModel(get() as CharactersPagerInterface)
                 }
             })
         }

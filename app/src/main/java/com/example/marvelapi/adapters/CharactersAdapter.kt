@@ -3,6 +3,7 @@ package com.example.marvelapi.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -10,7 +11,7 @@ import com.example.marvelapi.R
 import com.example.marvelapi.databinding.CharacterListItemBinding
 import com.example.marvelapi.models.Character
 
-class CharactersAdapter : ListAdapter<Character, CharactersAdapter.CharacterViewHolder>(DiffCallback){
+class CharactersAdapter : PagingDataAdapter<Character, CharactersAdapter.CharacterViewHolder>(DiffCallback){
 
     class CharacterViewHolder(private val binding: CharacterListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
@@ -28,7 +29,7 @@ class CharactersAdapter : ListAdapter<Character, CharactersAdapter.CharacterView
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
         var character = getItem(position)
-        holder.bind(character)
+        holder.bind(character!!)
     }
 
     companion object DiffCallback : DiffUtil.ItemCallback<Character>(){
