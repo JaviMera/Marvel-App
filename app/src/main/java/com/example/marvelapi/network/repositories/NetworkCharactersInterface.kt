@@ -3,6 +3,7 @@ package com.example.marvelapi.network.repositories
 import android.util.Log
 import com.example.marvelapi.MarvelApiResult
 import com.example.marvelapi.models.CharactersErrorResponse
+import com.example.marvelapi.models.CharactersRepoResponse
 import com.example.marvelapi.models.CharactersResponse
 import com.example.marvelapi.network.MarvelCharactersInterface
 import com.google.gson.Gson
@@ -21,7 +22,7 @@ class NetworkCharactersRepository(
         return try {
             val response = marvelCharactersInterface.getCharacters(offset).awaitResponse()
             if(response.isSuccessful){
-                MarvelApiResult.Success(Gson().fromJson(response.body(), CharactersResponse::class.java))
+                MarvelApiResult.Success(Gson().fromJson(response.body(), CharactersRepoResponse::class.java))
             }else{
                 val errorBody = response.errorBody()?.string()
                 MarvelApiResult.Failure(Gson().fromJson(errorBody, CharactersErrorResponse::class.java))

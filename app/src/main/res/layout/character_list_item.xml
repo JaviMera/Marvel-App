@@ -6,7 +6,7 @@
     <data>
         <variable
             name="character"
-            type="com.example.marvelapi.models.Character" />
+            type="com.example.marvelapi.data.local.CharactersRepo" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

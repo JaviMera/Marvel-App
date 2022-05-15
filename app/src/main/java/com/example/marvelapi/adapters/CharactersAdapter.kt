@@ -8,14 +8,15 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.marvelapi.R
+import com.example.marvelapi.data.local.CharactersRepo
 import com.example.marvelapi.databinding.CharacterListItemBinding
 import com.example.marvelapi.models.Character
 
-class CharactersAdapter : PagingDataAdapter<Character, CharactersAdapter.CharacterViewHolder>(DiffCallback){
+class CharactersAdapter : PagingDataAdapter<CharactersRepo, CharactersAdapter.CharacterViewHolder>(DiffCallback){
 
     class CharacterViewHolder(private val binding: CharacterListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(character: Character){
+        fun bind(character: CharactersRepo){
             binding.character = character
             binding.executePendingBindings()
         }
@@ -32,12 +33,12 @@ class CharactersAdapter : PagingDataAdapter<Character, CharactersAdapter.Charact
         holder.bind(character!!)
     }
 
-    companion object DiffCallback : DiffUtil.ItemCallback<Character>(){
-        override fun areItemsTheSame(oldItem: Character, newItem: Character): Boolean {
+    companion object DiffCallback : DiffUtil.ItemCallback<CharactersRepo>(){
+        override fun areItemsTheSame(oldItem: CharactersRepo, newItem: CharactersRepo): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: Character, newItem: Character): Boolean {
+        override fun areContentsTheSame(oldItem: CharactersRepo, newItem: CharactersRepo): Boolean {
             return oldItem == newItem
         }
     }

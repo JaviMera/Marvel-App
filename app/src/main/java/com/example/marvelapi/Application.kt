@@ -3,6 +3,7 @@ package com.example.marvelapi
 import android.app.Application
 import com.example.marvelapi.adapters.CharactersPagerInterface
 import com.example.marvelapi.adapters.CharactersPagerRepository
+import com.example.marvelapi.data.local.MarvelDatabase
 import com.example.marvelapi.network.AuthInterceptor
 import com.example.marvelapi.network.MarvelCharactersInterface
 import com.example.marvelapi.network.repositories.NetworkCharactersInterface
