@@ -14,12 +14,8 @@ class CharactersPagerRepository(
     override fun charactersPagingData()
     : LiveData<PagingData<Character>>{
         return Pager(
-            config = PagingConfig(enablePlaceholders = false, pageSize =  NETWORK_PAGE_SIZE),
+            config = PagingConfig(enablePlaceholders = false, pageSize =  20),
             pagingSourceFactory = {CharactersPagingSource(repository)}
         ).liveData
-    }
-
-    companion object{
-        private const val NETWORK_PAGE_SIZE = 20
     }
 }

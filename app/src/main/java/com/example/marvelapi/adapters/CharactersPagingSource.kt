@@ -1,5 +1,6 @@
 package com.example.marvelapi.adapters
 
+import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.marvelapi.MarvelApiResult
@@ -35,13 +36,17 @@ class CharactersPagingSource(
                     val result = response.data as CharactersResponse
                     LoadResult.Page(
                         data = result.data.results,
-                        prevKey = if(page == CHARACTERS_STARTING_OFFSET) null else page -1,
-                        nextKey = if(page == result.data.total - 1) null else page + 1
+                        prevKey = if(page == CHARACTERS_STARTING_OFFSET) null else page - CHARACTERS_PAGE_SIZE,
+                        nextKey = if(page == result.data.total - 1) null else page + CHARACTERS_PAGE_SIZE
                     )
                 }
             }
         }catch (exception: Exception){
             LoadResult.Error(exception)
         }
+    }
+
+    companion object{
+        const val CHARACTERS_PAGE_SIZE = 50
     }
 }

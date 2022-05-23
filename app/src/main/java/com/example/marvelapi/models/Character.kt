@@ -7,6 +7,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Character(
     @SerializedName("id") val id: Int,
-    @SerializedName("name") val name: String
+    @SerializedName("name") val name: String,
+    @SerializedName("thumbnail") val thumbnail: CharacterThumbnail
 ) : Parcelable
 
