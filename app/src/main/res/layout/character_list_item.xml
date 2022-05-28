@@ -36,6 +36,7 @@
             app:layout_constraintTop_toBottomOf="@id/line_separator"
             app:layout_constraintLeft_toLeftOf="@id/line_separator"
             app:layout_constraintRight_toRightOf="@id/line_separator"
+            app:superheroName="@{character}"
             tools:text="Doctor Strange" />
 
         <TextView
