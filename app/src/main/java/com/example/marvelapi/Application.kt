@@ -7,6 +7,8 @@ import com.example.marvelapi.network.AuthInterceptor
 import com.example.marvelapi.network.MarvelCharactersInterface
 import com.example.marvelapi.network.repositories.NetworkCharactersInterface
 import com.example.marvelapi.network.repositories.NetworkCharactersRepository
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -14,6 +16,7 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
 import retrofit2.Retrofit
+import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 
 class Application : Application(), KoinComponent {
@@ -27,7 +30,7 @@ class Application : Application(), KoinComponent {
 
                 androidContext(this@Application)
                 single{
-                    provideRetrofit(get())
+                    provideRetrofit(get(), get())
                 }
 
                 factory { AuthInterceptor() }
@@ -35,6 +38,8 @@ class Application : Application(), KoinComponent {
                 factory {
                     provideMarvelApi(get())
                 }
+
+                factory { provideMoshi() }
 
                 single{
                     NetworkCharactersRepository(get() as MarvelCharactersInterface) as NetworkCharactersInterface
@@ -54,11 +59,17 @@ class Application : Application(), KoinComponent {
         return OkHttpClient().newBuilder().addInterceptor(authInterceptor).build()
     }
 
-    private fun provideRetrofit(okHttpClient: OkHttpClient) : Retrofit {
+    private fun provideMoshi() : Moshi {
+        return Moshi.Builder()
+            .add(KotlinJsonAdapterFactory())
+            .build()
+    }
+
+    private fun provideRetrofit(moshi: Moshi, okHttpClient: OkHttpClient) : Retrofit {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.API_URL)
             .client(okHttpClient)
-            .addConverterFactory(ScalarsConverterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
     }
 

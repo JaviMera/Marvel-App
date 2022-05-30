@@ -9,6 +9,7 @@ import com.example.marvelapi.models.CharactersErrorResponse
 import com.example.marvelapi.models.CharactersResponse
 import com.example.marvelapi.network.repositories.NetworkCharactersInterface
 import com.example.marvelapi.network.repositories.NetworkCharactersRepository
+import retrofit2.HttpException
 
 private const val CHARACTERS_STARTING_OFFSET = 0
 
@@ -26,11 +27,7 @@ class CharactersPagingSource(
         return try{
             when(val response = charactersRepository.getAll(page)){
                 is MarvelApiResult.Error -> {
-                    LoadResult.Error(Exception(response.message))
-                }
-                is MarvelApiResult.Failure -> {
-                    val result = response.data as CharactersErrorResponse
-                    LoadResult.Error(Exception(result.message))
+                    LoadResult.Error(response.error)
                 }
                 is MarvelApiResult.Success -> {
                     val result = response.data as CharactersResponse

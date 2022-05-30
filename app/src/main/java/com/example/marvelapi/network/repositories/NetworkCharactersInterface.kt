@@ -2,11 +2,12 @@ package com.example.marvelapi.network.repositories
 
 import android.util.Log
 import com.example.marvelapi.MarvelApiResult
+import com.example.marvelapi.exceptions.MarvelException
 import com.example.marvelapi.models.CharactersErrorResponse
-import com.example.marvelapi.models.CharactersResponse
 import com.example.marvelapi.network.MarvelCharactersInterface
-import com.google.gson.Gson
-import retrofit2.awaitResponse
+import com.squareup.moshi.Moshi
+import okhttp3.ResponseBody
+import retrofit2.HttpException
 
 interface NetworkCharactersInterface {
     suspend fun getAll(offset: Int): MarvelApiResult<*>
@@ -19,15 +20,30 @@ class NetworkCharactersRepository(
     override suspend fun getAll(offset: Int): MarvelApiResult<*> {
 
         return try {
-            val response = marvelCharactersInterface.getCharacters(offset).awaitResponse()
+            val response = marvelCharactersInterface.getCharacters(offset)
+
             if(response.isSuccessful){
-                MarvelApiResult.Success(Gson().fromJson(response.body(), CharactersResponse::class.java))
-            }else{
-                val errorBody = response.errorBody()?.string()
-                MarvelApiResult.Failure(Gson().fromJson(errorBody, CharactersErrorResponse::class.java))
+                MarvelApiResult.Success(response.body()!!)
             }
-        }catch (exception: Exception){
-            MarvelApiResult.Error(exception.localizedMessage)
+            else{
+                val errorResponse = convertErrorBody(response.errorBody())
+                throw MarvelException(errorResponse.message, errorResponse.code.toInt())
+            }
+        }catch (exception: HttpException){
+            MarvelApiResult.Error(exception)
         }
+        catch(exception: NullPointerException){
+            MarvelApiResult.Error(exception)
+        }catch (exception: Exception){
+            MarvelApiResult.Error(exception)
+        }
+    }
+
+    private fun convertErrorBody(body: ResponseBody?): CharactersErrorResponse {
+        return body?.source()?.let {
+            Moshi.Builder().build().adapter(CharactersErrorResponse::class.java).fromJson(
+                it
+            ) ?: CharactersErrorResponse("Unable to cast exception thrown by marvel api", "")
+        }!!
     }
 }

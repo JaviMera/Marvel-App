@@ -17,7 +17,7 @@ fun bindPictureOfDay(imageView: ImageView, thumbnail: CharacterThumbnail){
         imageView.setImageResource(R.drawable.character_image_error)
     }else{
         Glide.with(imageView.context)
-            .load("${thumbnail.path.replace("http", "https")}/standard_xlarge.${thumbnail.extension}")
+            .load("${thumbnail.path.replace("http", "https")}/portrait_uncanny.${thumbnail.extension}")
             .apply(
                 RequestOptions()
                     .placeholder(R.drawable.loading_image)

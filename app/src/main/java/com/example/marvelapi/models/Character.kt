@@ -2,12 +2,13 @@ package com.example.marvelapi.models
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Character(
-    @SerializedName("id") val id: Int,
-    @SerializedName("name") val name: String,
-    @SerializedName("thumbnail") val thumbnail: CharacterThumbnail
+    @field:Json(name="id") val id: Int,
+    @field:Json(name="name") val name: String,
+    @field:Json(name="thumbnail") val thumbnail: CharacterThumbnail
 ) : Parcelable
 
