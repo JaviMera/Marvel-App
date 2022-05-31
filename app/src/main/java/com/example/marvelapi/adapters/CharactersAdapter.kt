@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.marvelapi.R
 import com.example.marvelapi.databinding.CharacterListItemBinding
@@ -42,3 +41,4 @@ class CharactersAdapter : PagingDataAdapter<Character, CharactersAdapter.Charact
         }
     }
 }
+

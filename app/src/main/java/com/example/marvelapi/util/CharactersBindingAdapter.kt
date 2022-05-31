@@ -7,12 +7,12 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.marvelapi.R
 import com.example.marvelapi.models.Character
-import com.example.marvelapi.models.CharacterThumbnail
+import com.example.marvelapi.models.Thumbnail
 
 val pattern = "\\(([^)]+)\\)".toRegex()
 
 @BindingAdapter("showPoster")
-fun bindPictureOfDay(imageView: ImageView, thumbnail: CharacterThumbnail){
+fun bindPictureOfDay(imageView: ImageView, thumbnail: Thumbnail){
     if(thumbnail.path == null){
         imageView.setImageResource(R.drawable.character_image_error)
     }else{

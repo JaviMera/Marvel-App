@@ -3,10 +3,16 @@ package com.example.marvelapi
 import android.app.Application
 import com.example.marvelapi.adapters.CharactersPagerInterface
 import com.example.marvelapi.adapters.CharactersPagerRepository
+import com.example.marvelapi.adapters.ComicsPagerInterface
+import com.example.marvelapi.adapters.ComicsPagerRepository
+import com.example.marvelapi.comics.ComicsViweModel
 import com.example.marvelapi.network.AuthInterceptor
 import com.example.marvelapi.network.MarvelCharactersInterface
+import com.example.marvelapi.network.MarvelComicsInterface
 import com.example.marvelapi.network.repositories.NetworkCharactersInterface
 import com.example.marvelapi.network.repositories.NetworkCharactersRepository
+import com.example.marvelapi.network.repositories.NetworkComicsInterface
+import com.example.marvelapi.network.repositories.NetworkComicsRepository
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -17,7 +23,6 @@ import org.koin.core.context.startKoin
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.converter.scalars.ScalarsConverterFactory
 
 class Application : Application(), KoinComponent {
 
@@ -35,21 +40,31 @@ class Application : Application(), KoinComponent {
 
                 factory { AuthInterceptor() }
                 factory { provideOkHttpClient(get()) }
-                factory {
-                    provideMarvelApi(get())
-                }
-
+                factory {provideMarvelCharactersInterface(get())}
+                factory {provideMarvelComicsInterface(get())}
                 factory { provideMoshi() }
 
                 single{
                     NetworkCharactersRepository(get() as MarvelCharactersInterface) as NetworkCharactersInterface
                 }
                 single{
+                    NetworkComicsRepository(get() as MarvelComicsInterface) as NetworkComicsInterface
+                }
+
+                single{
                     CharactersPagerRepository(get() as NetworkCharactersInterface) as CharactersPagerInterface
+                }
+
+                single{
+                    ComicsPagerRepository(get() as NetworkComicsInterface) as ComicsPagerInterface
                 }
 
                 viewModel {
                     CharactersViewModel(get() as CharactersPagerInterface)
+                }
+
+                viewModel {
+                    ComicsViweModel(get() as ComicsPagerInterface)
                 }
             })
         }
@@ -73,7 +88,11 @@ class Application : Application(), KoinComponent {
             .build()
     }
 
-    private fun provideMarvelApi(retrofit: Retrofit) : MarvelCharactersInterface{
+    private fun provideMarvelCharactersInterface(retrofit: Retrofit) : MarvelCharactersInterface{
         return retrofit.create(MarvelCharactersInterface::class.java)
+    }
+
+    private fun provideMarvelComicsInterface(retrofit: Retrofit) : MarvelComicsInterface{
+        return retrofit.create(MarvelComicsInterface::class.java)
     }
 }

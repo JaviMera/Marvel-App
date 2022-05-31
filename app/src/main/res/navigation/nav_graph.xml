@@ -10,4 +10,9 @@
         android:name="com.example.marvelapi.characters.CharactersFragment"
         android:label="CharactersFragment"
         tools:layout="@layout/fragment_characters"/>
+    <fragment
+        android:id="@+id/comics_fragment"
+        android:name="com.example.marvelapi.comics.ComicsFragment"
+        android:label="ComicsFragment"
+        tools:layout="@layout/fragment_comics"/>
 </navigation>

@@ -8,6 +8,7 @@
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/drawable/character_image_error.xml" value="0.2055" />
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/drawable/character_image_sample_background.xml" value="0.1475" />
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/drawable/character_item_card.xml" value="0.3595" />
+        <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/drawable/comic_image_sample_background.xml" value="0.225" />
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1475" />
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/drawable/loading_icon.xml" value="0.2055" />
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/drawable/nav_bar_header_background.xml" value="0.308" />
@@ -17,9 +18,11 @@
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/layout/app_bar_main.xml" value="0.33076923076923076" />
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/layout/app_bar_nav_drawer.xml" value="0.24770642201834864" />
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/layout/character_list_item.xml" value="0.264" />
+        <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/layout/comic_list_item.xml" value="0.4" />
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/layout/content_main.xml" value="0.30572916666666666" />
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/layout/content_nav_drawer.xml" value="0.24770642201834864" />
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/layout/fragment_characters.xml" value="0.2869791666666667" />
+        <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/layout/fragment_comics.xml" value="0.33695652173913043" />
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/layout/nav_header.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/layout/nav_header_main.xml" value="0.403125" />
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/layout/nav_header_nav_drawer.xml" value="0.11702127659574468" />

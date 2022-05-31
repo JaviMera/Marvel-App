@@ -3,23 +3,21 @@ package com.example.marvelapi.network.repositories
 import com.example.marvelapi.MarvelApiResult
 import com.example.marvelapi.exceptions.MarvelException
 import com.example.marvelapi.models.ErrorResponse
-import com.example.marvelapi.network.MarvelCharactersInterface
+import com.example.marvelapi.network.MarvelComicsInterface
 import com.squareup.moshi.Moshi
 import okhttp3.ResponseBody
 import retrofit2.HttpException
 
-interface NetworkCharactersInterface {
-    suspend fun getAll(offset: Int): MarvelApiResult<*>
+interface NetworkComicsInterface{
+    suspend fun getAll(offset: Int) : MarvelApiResult<*>
 }
 
-class NetworkCharactersRepository(
-    private val marvelCharactersInterface: MarvelCharactersInterface
-) : NetworkCharactersInterface{
-
+class NetworkComicsRepository(
+    private val marvelComicsInterface: MarvelComicsInterface
+) : NetworkComicsInterface{
     override suspend fun getAll(offset: Int): MarvelApiResult<*> {
-
         return try {
-            val response = marvelCharactersInterface.getCharacters(offset)
+            val response = marvelComicsInterface.getComics(offset)
 
             if(response.isSuccessful){
                 MarvelApiResult.Success(response.body()!!)

@@ -2,7 +2,8 @@
     <string name="app_name">Marvel Api</string>
     <string name="character_profile_picture">Character profile picture</string>
     <string name="characters_menu_title">Characters</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="nav_drawer_header_title">Marvel API</string>
+    <string name="comic_picture">comic picture</string>
+    <string name="comics_menu_title">Comics</string>
 </resources>

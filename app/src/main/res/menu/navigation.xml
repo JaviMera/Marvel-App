@@ -7,5 +7,7 @@
     <group>
         <item android:id="@+id/characters_fragment"
             android:title="@string/characters_menu_title" />
+        <item android:id="@+id/comics_fragment"
+            android:title="@string/comics_menu_title" />
     </group>
 </menu>

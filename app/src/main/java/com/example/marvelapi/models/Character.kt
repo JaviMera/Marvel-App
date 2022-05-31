@@ -1,7 +1,6 @@
 package com.example.marvelapi.models
 
 import android.os.Parcelable
-import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 import kotlinx.parcelize.Parcelize
 
@@ -9,6 +8,6 @@ import kotlinx.parcelize.Parcelize
 data class Character(
     @field:Json(name="id") val id: Int,
     @field:Json(name="name") val name: String,
-    @field:Json(name="thumbnail") val thumbnail: CharacterThumbnail
+    @field:Json(name="thumbnail") val thumbnail: Thumbnail
 ) : Parcelable
 

@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class CharacterThumbnail(
+data class Thumbnail(
     val path: String?,
     val extension: String
 ) : Parcelable

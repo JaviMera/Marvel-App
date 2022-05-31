@@ -22,11 +22,16 @@
         <item name="android:layout_margin">@dimen/small_margin_dimen</item>
     </style>
 
-    <style name="CharacterItemImage">
+    <style name="ListItemImage">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/small_image_item_dimen</item>
         <item name="android:scaleType">centerCrop</item>
-        <item name="android:contentDescription">@string/character_profile_picture</item>
+    </style>
+
+    <style name="ListItemImage.Character" parent="ListItemImage">
+    </style>
+
+    <style name="ListItemImage.Comic" parent="ListItemImage">
     </style>
 
     <style name="CharacterItemSeparator">

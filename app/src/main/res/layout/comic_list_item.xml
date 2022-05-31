@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+    <variable
+        name="comic"
+        type="com.example.marvelapi.comics.Comic" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/comic_card_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="@dimen/medium_margin_dimen"
+        android:layout_margin="@dimen/small_margin_dimen">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/comic_item_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/comic_image"
+                style="@style/ListItemImage.Comic"
+                android:contentDescription="@string/comic_picture"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:showPoster="@{comic.thumbnail}"
+                tools:src="@mipmap/comic_image_sample"/>
+
+            <TextView
+                android:id="@+id/comic_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/small_text_size_dimen"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:padding="@dimen/small_padding_dimen"
+                android:maxLines="1"
+                android:text="@{comic.title}"
+                app:layout_constraintTop_toBottomOf="@+id/comic_image"
+                app:layout_constraintStart_toStartOf="@+id/comic_image"
+                app:layout_constraintEnd_toEndOf="@id/comic_image"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="Marvel Preview (2017)"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

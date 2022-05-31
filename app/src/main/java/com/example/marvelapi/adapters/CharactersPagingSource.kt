@@ -1,15 +1,11 @@
 package com.example.marvelapi.adapters
 
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.marvelapi.MarvelApiResult
 import com.example.marvelapi.models.Character
-import com.example.marvelapi.models.CharactersErrorResponse
 import com.example.marvelapi.models.CharactersResponse
 import com.example.marvelapi.network.repositories.NetworkCharactersInterface
-import com.example.marvelapi.network.repositories.NetworkCharactersRepository
-import retrofit2.HttpException
 
 private const val CHARACTERS_STARTING_OFFSET = 0
 

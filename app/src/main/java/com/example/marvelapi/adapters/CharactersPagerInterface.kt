@@ -7,3 +7,4 @@ import com.example.marvelapi.models.Character
 interface CharactersPagerInterface{
     fun charactersPagingData() : LiveData<PagingData<Character>>
 }
+
