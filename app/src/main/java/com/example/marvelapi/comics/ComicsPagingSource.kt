@@ -1,10 +1,10 @@
-package com.example.marvelapi.adapters
+package com.example.marvelapi.comics
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.marvelapi.MarvelApiResult
-import com.example.marvelapi.comics.Comic
-import com.example.marvelapi.comics.ComicsResponse
+import com.example.marvelapi.models.Comic
+import com.example.marvelapi.models.ComicsResponse
 import com.example.marvelapi.network.repositories.NetworkComicsInterface
 
 private const val COMICS_STARTING_OFFSET = 0

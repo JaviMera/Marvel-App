@@ -1,11 +1,11 @@
-package com.example.marvelapi.adapters
+package com.example.marvelapi.comics
 
 import androidx.lifecycle.LiveData
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.liveData
-import com.example.marvelapi.comics.Comic
+import com.example.marvelapi.models.Comic
 import com.example.marvelapi.network.repositories.NetworkComicsInterface
 
 class ComicsPagerRepository(

@@ -1,6 +1,6 @@
 package com.example.marvelapi.network
 
-import com.example.marvelapi.comics.ComicsResponse
+import com.example.marvelapi.models.ComicsResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

@@ -1,11 +1,12 @@
 package com.example.marvelapi
 
 import android.app.Application
-import com.example.marvelapi.adapters.CharactersPagerInterface
-import com.example.marvelapi.adapters.CharactersPagerRepository
-import com.example.marvelapi.adapters.ComicsPagerInterface
-import com.example.marvelapi.adapters.ComicsPagerRepository
-import com.example.marvelapi.comics.ComicsViweModel
+import com.example.marvelapi.characters.CharactersPagerInterface
+import com.example.marvelapi.characters.CharactersPagerRepository
+import com.example.marvelapi.characters.CharactersViewModel
+import com.example.marvelapi.comics.ComicsPagerInterface
+import com.example.marvelapi.comics.ComicsPagerRepository
+import com.example.marvelapi.comics.ComicsViewModel
 import com.example.marvelapi.network.AuthInterceptor
 import com.example.marvelapi.network.MarvelCharactersInterface
 import com.example.marvelapi.network.MarvelComicsInterface
@@ -64,7 +65,7 @@ class Application : Application(), KoinComponent {
                 }
 
                 viewModel {
-                    ComicsViweModel(get() as ComicsPagerInterface)
+                    ComicsViewModel(get() as ComicsPagerInterface)
                 }
             })
         }

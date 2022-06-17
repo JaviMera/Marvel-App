@@ -5,11 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import com.example.marvelapi.CharactersViewModel
-import com.example.marvelapi.R
-import com.example.marvelapi.adapters.CharactersAdapter
 import com.example.marvelapi.databinding.FragmentCharactersBinding
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel

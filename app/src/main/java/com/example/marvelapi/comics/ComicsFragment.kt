@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import com.example.marvelapi.adapters.ComicsAdapter
 import com.example.marvelapi.databinding.FragmentComicsBinding
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -15,7 +14,7 @@ class ComicsFragment : Fragment() {
     private var _binding: FragmentComicsBinding? = null
     private val binding get() = _binding!!
 
-    private val comicsViweModel: ComicsViweModel by viewModel()
+    private val comicsViweModel: ComicsViewModel by viewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }

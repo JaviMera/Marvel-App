@@ -1,4 +1,4 @@
-package com.example.marvelapi.adapters
+package com.example.marvelapi.characters
 
 import androidx.lifecycle.LiveData
 import androidx.paging.Pager
@@ -15,7 +15,7 @@ class CharactersPagerRepository(
     : LiveData<PagingData<Character>>{
         return Pager(
             config = PagingConfig(enablePlaceholders = false, pageSize =  20),
-            pagingSourceFactory = {CharactersPagingSource(repository)}
+            pagingSourceFactory = { CharactersPagingSource(repository) }
         ).liveData
     }
 }

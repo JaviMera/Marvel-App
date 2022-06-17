@@ -7,9 +7,9 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.map
-import com.example.marvelapi.adapters.ComicsPagerInterface
+import com.example.marvelapi.models.Comic
 
-class ComicsViweModel (
+class ComicsViewModel (
     private val repository: ComicsPagerInterface
 ) : ViewModel() {
 

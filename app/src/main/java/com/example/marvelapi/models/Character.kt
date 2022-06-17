@@ -1,13 +1,14 @@
 package com.example.marvelapi.models
 
 import android.os.Parcelable
+import com.example.marvelapi.common.MarvelItemBase
 import com.squareup.moshi.Json
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Character(
-    @field:Json(name="id") val id: Int,
+    override val id: Int,
     @field:Json(name="name") val name: String,
     @field:Json(name="thumbnail") val thumbnail: Thumbnail
-) : Parcelable
+) : Parcelable, MarvelItemBase()
 

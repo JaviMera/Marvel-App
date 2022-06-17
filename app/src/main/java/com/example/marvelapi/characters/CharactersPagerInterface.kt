@@ -1,4 +1,4 @@
-package com.example.marvelapi.adapters
+package com.example.marvelapi.characters
 
 import androidx.lifecycle.LiveData
 import androidx.paging.PagingData
