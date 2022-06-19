@@ -1,10 +1,11 @@
-package com.example.marvelapi.comics
+package com.example.marvelapi.adapters.comics
 
+import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.marvelapi.MarvelApiResult
-import com.example.marvelapi.models.Comic
-import com.example.marvelapi.models.ComicsResponse
+import com.example.marvelapi.models.comics.Comic
+import com.example.marvelapi.models.comics.ComicsResponse
 import com.example.marvelapi.network.repositories.NetworkComicsInterface
 
 private const val COMICS_STARTING_OFFSET = 0
@@ -21,7 +22,7 @@ class ComicsPagingSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Comic> {
         val page = params.key ?: COMICS_STARTING_OFFSET
         return try{
-            when(val response = comicsRepository.getAll(page)){
+            when(val response = comicsRepository.getAll(page, COMICS_PAGE_SIZE)){
                 is MarvelApiResult.Error -> {
                     LoadResult.Error(response.error)
                 }
@@ -40,6 +41,6 @@ class ComicsPagingSource(
     }
 
     companion object{
-        const val COMICS_PAGE_SIZE = 50
+        const val COMICS_PAGE_SIZE = 100
     }
 }

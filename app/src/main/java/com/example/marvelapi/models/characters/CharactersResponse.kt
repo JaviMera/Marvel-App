@@ -1,4 +1,4 @@
-package com.example.marvelapi.models
+package com.example.marvelapi.models.characters
 
 import android.os.Parcelable
 import com.squareup.moshi.Json

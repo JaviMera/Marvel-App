@@ -1,10 +1,10 @@
-package com.example.marvelapi.characters
+package com.example.marvelapi.adapters.characters
 
 import com.example.marvelapi.R
 import com.example.marvelapi.common.RecyclerAdapterBase
 import com.example.marvelapi.common.RecyclerBindingInterface
 import com.example.marvelapi.databinding.CharacterListItemBinding
-import com.example.marvelapi.models.Character
+import com.example.marvelapi.models.characters.Character
 
 class CharactersAdapter : RecyclerAdapterBase<Character, CharacterListItemBinding>(
     object: RecyclerBindingInterface<Character, CharacterListItemBinding> {

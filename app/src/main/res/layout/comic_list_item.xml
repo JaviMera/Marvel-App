@@ -7,7 +7,7 @@
     <data>
     <variable
         name="comic"
-        type="com.example.marvelapi.models.Comic" />
+        type="com.example.marvelapi.models.comics.Comic" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -36,7 +36,7 @@
                 android:id="@+id/comic_title"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textSize="@dimen/small_text_size_dimen"
+                android:textSize="@dimen/x_small_text_size_dimen"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:padding="@dimen/small_padding_dimen"

@@ -1,10 +1,10 @@
-package com.example.marvelapi.characters
+package com.example.marvelapi.adapters.characters
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.marvelapi.MarvelApiResult
-import com.example.marvelapi.models.Character
-import com.example.marvelapi.models.CharactersResponse
+import com.example.marvelapi.models.characters.Character
+import com.example.marvelapi.models.characters.CharactersResponse
 import com.example.marvelapi.network.repositories.NetworkCharactersInterface
 
 private const val CHARACTERS_STARTING_OFFSET = 0
@@ -40,6 +40,6 @@ class CharactersPagingSource(
     }
 
     companion object{
-        const val CHARACTERS_PAGE_SIZE = 50
+        const val CHARACTERS_PAGE_SIZE = 20
     }
 }

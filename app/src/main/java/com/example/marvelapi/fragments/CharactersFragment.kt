@@ -1,4 +1,4 @@
-package com.example.marvelapi.characters
+package com.example.marvelapi.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
+import com.example.marvelapi.adapters.characters.CharactersAdapter
+import com.example.marvelapi.viewmodels.characters.CharactersViewModel
 import com.example.marvelapi.databinding.FragmentCharactersBinding
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel

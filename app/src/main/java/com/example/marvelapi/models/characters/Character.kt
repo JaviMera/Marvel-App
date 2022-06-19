@@ -1,7 +1,8 @@
-package com.example.marvelapi.models
+package com.example.marvelapi.models.characters
 
 import android.os.Parcelable
 import com.example.marvelapi.common.MarvelItemBase
+import com.example.marvelapi.models.Thumbnail
 import com.squareup.moshi.Json
 import kotlinx.parcelize.Parcelize
 

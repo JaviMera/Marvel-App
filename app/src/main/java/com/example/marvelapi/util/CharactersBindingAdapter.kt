@@ -6,7 +6,7 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.marvelapi.R
-import com.example.marvelapi.models.Character
+import com.example.marvelapi.models.characters.Character
 import com.example.marvelapi.models.Thumbnail
 
 val pattern = "\\(([^)]+)\\)".toRegex()

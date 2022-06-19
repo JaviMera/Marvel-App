@@ -1,5 +1,6 @@
 package com.example.marvelapi.network.repositories
 
+import android.util.Log
 import com.example.marvelapi.MarvelApiResult
 import com.example.marvelapi.exceptions.MarvelException
 import com.example.marvelapi.models.ErrorResponse
@@ -9,15 +10,15 @@ import okhttp3.ResponseBody
 import retrofit2.HttpException
 
 interface NetworkComicsInterface{
-    suspend fun getAll(offset: Int) : MarvelApiResult<*>
+    suspend fun getAll(offset: Int, limit: Int) : MarvelApiResult<*>
 }
 
 class NetworkComicsRepository(
     private val marvelComicsInterface: MarvelComicsInterface
 ) : NetworkComicsInterface{
-    override suspend fun getAll(offset: Int): MarvelApiResult<*> {
+    override suspend fun getAll(offset: Int, limit: Int): MarvelApiResult<*> {
         return try {
-            val response = marvelComicsInterface.getComics(offset)
+            val response = marvelComicsInterface.getComics(offset, limit)
 
             if(response.isSuccessful){
                 MarvelApiResult.Success(response.body()!!)

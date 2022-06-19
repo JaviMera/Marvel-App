@@ -1,7 +1,7 @@
-package com.example.marvelapi.comics
+package com.example.marvelapi.adapters.comics
 
 import com.example.marvelapi.R
-import com.example.marvelapi.models.Comic
+import com.example.marvelapi.models.comics.Comic
 import com.example.marvelapi.common.RecyclerAdapterBase
 import com.example.marvelapi.common.RecyclerBindingInterface
 import com.example.marvelapi.databinding.ComicListItemBinding

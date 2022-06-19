@@ -1,12 +1,12 @@
 package com.example.marvelapi
 
 import android.app.Application
-import com.example.marvelapi.characters.CharactersPagerInterface
-import com.example.marvelapi.characters.CharactersPagerRepository
-import com.example.marvelapi.characters.CharactersViewModel
-import com.example.marvelapi.comics.ComicsPagerInterface
-import com.example.marvelapi.comics.ComicsPagerRepository
-import com.example.marvelapi.comics.ComicsViewModel
+import com.example.marvelapi.adapters.characters.CharactersPagerInterface
+import com.example.marvelapi.adapters.characters.CharactersPagerRepository
+import com.example.marvelapi.viewmodels.characters.CharactersViewModel
+import com.example.marvelapi.adapters.comics.ComicsPagerInterface
+import com.example.marvelapi.adapters.comics.ComicsPagerRepository
+import com.example.marvelapi.viewmodels.comics.ComicsViewModel
 import com.example.marvelapi.network.AuthInterceptor
 import com.example.marvelapi.network.MarvelCharactersInterface
 import com.example.marvelapi.network.MarvelComicsInterface

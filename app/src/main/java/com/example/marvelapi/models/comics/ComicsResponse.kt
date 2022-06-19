@@ -1,7 +1,6 @@
-package com.example.marvelapi.models
+package com.example.marvelapi.models.comics
 
 import android.os.Parcelable
-import com.example.marvelapi.models.ComicsData
 import com.squareup.moshi.Json
 import kotlinx.parcelize.Parcelize
 

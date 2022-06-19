@@ -1,16 +1,12 @@
 package com.example.marvelapi.common
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.marvelapi.R
-import com.example.marvelapi.databinding.CharacterListItemBinding
-import com.example.marvelapi.models.Character
 
 open class RecyclerAdapterBase<TItem : MarvelItemBase, TViewBinding : ViewDataBinding>(
     private val bindingInterface: RecyclerBindingInterface<TItem, TViewBinding>,

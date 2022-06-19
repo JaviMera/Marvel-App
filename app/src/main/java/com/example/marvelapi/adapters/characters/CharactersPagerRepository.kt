@@ -1,11 +1,11 @@
-package com.example.marvelapi.characters
+package com.example.marvelapi.adapters.characters
 
 import androidx.lifecycle.LiveData
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.liveData
-import com.example.marvelapi.models.Character
+import com.example.marvelapi.models.characters.Character
 import com.example.marvelapi.network.repositories.NetworkCharactersInterface
 
 class CharactersPagerRepository(
