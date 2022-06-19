@@ -8,11 +8,16 @@
     <fragment
         android:id="@+id/characters_fragment"
         android:name="com.example.marvelapi.fragments.CharactersFragment"
-        android:label="CharactersFragment"
+        android:label="Character"
         tools:layout="@layout/fragment_characters"/>
     <fragment
         android:id="@+id/comics_fragment"
         android:name="com.example.marvelapi.fragments.ComicsFragment"
-        android:label="ComicsFragment"
+        android:label="Comics"
         tools:layout="@layout/fragment_comics"/>
+    <fragment
+        android:id="@+id/series_fragment"
+        android:name="com.example.marvelapi.fragments.SeriesFragment"
+        android:label="Series"
+        tools:layout="@layout/fragment_series"/>
 </navigation>

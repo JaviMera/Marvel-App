@@ -6,14 +6,15 @@ import com.example.marvelapi.adapters.characters.CharactersPagerRepository
 import com.example.marvelapi.viewmodels.characters.CharactersViewModel
 import com.example.marvelapi.adapters.comics.ComicsPagerInterface
 import com.example.marvelapi.adapters.comics.ComicsPagerRepository
+import com.example.marvelapi.adapters.series.SeriesPagerInterface
+import com.example.marvelapi.adapters.series.SeriesPagerRepository
 import com.example.marvelapi.viewmodels.comics.ComicsViewModel
 import com.example.marvelapi.network.AuthInterceptor
 import com.example.marvelapi.network.MarvelCharactersInterface
 import com.example.marvelapi.network.MarvelComicsInterface
-import com.example.marvelapi.network.repositories.NetworkCharactersInterface
-import com.example.marvelapi.network.repositories.NetworkCharactersRepository
-import com.example.marvelapi.network.repositories.NetworkComicsInterface
-import com.example.marvelapi.network.repositories.NetworkComicsRepository
+import com.example.marvelapi.network.MarvelSeriesInterface
+import com.example.marvelapi.network.repositories.*
+import com.example.marvelapi.viewmodels.series.SeriesViewModel
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -43,6 +44,7 @@ class Application : Application(), KoinComponent {
                 factory { provideOkHttpClient(get()) }
                 factory {provideMarvelCharactersInterface(get())}
                 factory {provideMarvelComicsInterface(get())}
+                factory {provideMarvelSeriesInterface(get())}
                 factory { provideMoshi() }
 
                 single{
@@ -53,11 +55,19 @@ class Application : Application(), KoinComponent {
                 }
 
                 single{
+                    NetworkSeriesRepository(get() as MarvelSeriesInterface) as NetworkSeriesInterface
+                }
+
+                single{
                     CharactersPagerRepository(get() as NetworkCharactersInterface) as CharactersPagerInterface
                 }
 
                 single{
                     ComicsPagerRepository(get() as NetworkComicsInterface) as ComicsPagerInterface
+                }
+
+                single{
+                    SeriesPagerRepository(get() as NetworkSeriesInterface) as SeriesPagerInterface
                 }
 
                 viewModel {
@@ -66,6 +76,10 @@ class Application : Application(), KoinComponent {
 
                 viewModel {
                     ComicsViewModel(get() as ComicsPagerInterface)
+                }
+
+                viewModel {
+                    SeriesViewModel(get() as SeriesPagerInterface)
                 }
             })
         }
@@ -95,5 +109,9 @@ class Application : Application(), KoinComponent {
 
     private fun provideMarvelComicsInterface(retrofit: Retrofit) : MarvelComicsInterface{
         return retrofit.create(MarvelComicsInterface::class.java)
+    }
+
+    private fun provideMarvelSeriesInterface(retrofit: Retrofit) : MarvelSeriesInterface{
+        return retrofit.create(MarvelSeriesInterface::class.java)
     }
 }

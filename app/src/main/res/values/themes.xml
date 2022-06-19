@@ -34,6 +34,9 @@
     <style name="ListItemImage.Comic" parent="ListItemImage">
     </style>
 
+    <style name="ListItemImage.Series" parent="ListItemImage">
+    </style>
+
     <style name="CharacterItemSeparator">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/small_margin_dimen</item>
