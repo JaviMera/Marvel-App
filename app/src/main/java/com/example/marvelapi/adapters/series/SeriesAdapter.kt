@@ -15,3 +15,4 @@ class SeriesAdapter : RecyclerAdapterBase<Series, SeriesListItemBinding>(
     },
     R.layout.series_list_item
 )
+

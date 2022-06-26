@@ -20,4 +20,9 @@
         android:name="com.example.marvelapi.fragments.SeriesFragment"
         android:label="Series"
         tools:layout="@layout/fragment_series"/>
+    <fragment
+        android:id="@+id/events_fragment"
+        android:name="com.example.marvelapi.fragments.EventsFragment"
+        android:label="EventsFragment"
+        tools:layout="@layout/fragment_events"/>
 </navigation>

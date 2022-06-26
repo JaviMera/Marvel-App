@@ -1,4 +1,4 @@
-package com.example.marvelapi.viewmodels.series
+package com.example.marvelapi.viewmodels.events
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -7,19 +7,18 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.map
-import com.example.marvelapi.adapters.series.SeriesPagerInterface
-import com.example.marvelapi.models.series.Series
+import com.example.marvelapi.adapters.events.EventsPagerInterface
+import com.example.marvelapi.models.events.Event
 
-class SeriesViewModel (
-    private val repository: SeriesPagerInterface
+class EventsViewModel (
+    private val repository: EventsPagerInterface
 ) : ViewModel() {
 
-    fun getSeries() : LiveData<PagingData<Series>> {
+    fun getEvents() : LiveData<PagingData<Event>> {
 
         return repository
-            .seriesPagingData()
+            .eventsPagingData()
             .map { it.map{series -> series} }
             .cachedIn(viewModelScope)
     }
 }
-

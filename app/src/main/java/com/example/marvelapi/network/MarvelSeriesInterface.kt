@@ -9,3 +9,4 @@ interface MarvelSeriesInterface{
     @GET("v1/public/series")
     suspend fun getSeries(@Query("offset") offset: Int, @Query("limit") limit: Int) : Response<SeriesResponse>
 }
+

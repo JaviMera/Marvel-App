@@ -6,14 +6,18 @@ import com.example.marvelapi.adapters.characters.CharactersPagerRepository
 import com.example.marvelapi.viewmodels.characters.CharactersViewModel
 import com.example.marvelapi.adapters.comics.ComicsPagerInterface
 import com.example.marvelapi.adapters.comics.ComicsPagerRepository
+import com.example.marvelapi.adapters.events.EventsPagerInterface
+import com.example.marvelapi.adapters.events.EventsPagerRepository
 import com.example.marvelapi.adapters.series.SeriesPagerInterface
 import com.example.marvelapi.adapters.series.SeriesPagerRepository
+import com.example.marvelapi.network.MarvelEventsInterface
 import com.example.marvelapi.viewmodels.comics.ComicsViewModel
 import com.example.marvelapi.network.AuthInterceptor
 import com.example.marvelapi.network.MarvelCharactersInterface
 import com.example.marvelapi.network.MarvelComicsInterface
 import com.example.marvelapi.network.MarvelSeriesInterface
 import com.example.marvelapi.network.repositories.*
+import com.example.marvelapi.viewmodels.events.EventsViewModel
 import com.example.marvelapi.viewmodels.series.SeriesViewModel
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -25,6 +29,7 @@ import org.koin.core.context.startKoin
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import java.util.concurrent.TimeUnit
 
 class Application : Application(), KoinComponent {
 
@@ -45,29 +50,37 @@ class Application : Application(), KoinComponent {
                 factory {provideMarvelCharactersInterface(get())}
                 factory {provideMarvelComicsInterface(get())}
                 factory {provideMarvelSeriesInterface(get())}
+                factory {provideMarvelEventsInterface(get())}
                 factory { provideMoshi() }
 
                 single{
-                    NetworkCharactersRepository(get() as MarvelCharactersInterface) as NetworkCharactersInterface
+                    NetworkCharactersRepository(get() as MarvelCharactersInterface)
                 }
                 single{
-                    NetworkComicsRepository(get() as MarvelComicsInterface) as NetworkComicsInterface
-                }
-
-                single{
-                    NetworkSeriesRepository(get() as MarvelSeriesInterface) as NetworkSeriesInterface
+                    NetworkComicsRepository(get() as MarvelComicsInterface)
                 }
 
                 single{
-                    CharactersPagerRepository(get() as NetworkCharactersInterface) as CharactersPagerInterface
+                    NetworkSeriesRepository(get() as MarvelSeriesInterface)
+                }
+                single{
+                    NetworkEventsRepository(get() as MarvelEventsInterface)
                 }
 
                 single{
-                    ComicsPagerRepository(get() as NetworkComicsInterface) as ComicsPagerInterface
+                    CharactersPagerRepository(get() as NetworkCharactersInterface)
                 }
 
                 single{
-                    SeriesPagerRepository(get() as NetworkSeriesInterface) as SeriesPagerInterface
+                    ComicsPagerRepository(get() as NetworkComicsInterface)
+                }
+
+                single{
+                    SeriesPagerRepository(get() as NetworkSeriesInterface)
+                }
+
+                single{
+                    EventsPagerRepository(get() as NetworkEventsInterface)
                 }
 
                 viewModel {
@@ -80,6 +93,10 @@ class Application : Application(), KoinComponent {
 
                 viewModel {
                     SeriesViewModel(get() as SeriesPagerInterface)
+                }
+
+                viewModel {
+                    EventsViewModel(get() as EventsPagerInterface)
                 }
             })
         }
@@ -113,5 +130,9 @@ class Application : Application(), KoinComponent {
 
     private fun provideMarvelSeriesInterface(retrofit: Retrofit) : MarvelSeriesInterface{
         return retrofit.create(MarvelSeriesInterface::class.java)
+    }
+
+    private fun provideMarvelEventsInterface(retrofit: Retrofit) : MarvelEventsInterface {
+        return retrofit.create(MarvelEventsInterface::class.java)
     }
 }

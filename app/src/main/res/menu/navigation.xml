@@ -11,5 +11,7 @@
             android:title="@string/comics_menu_title" />
         <item android:id="@+id/series_fragment"
             android:title="@string/series_menu_title" />
+        <item android:id="@+id/events_fragment"
+            android:title="@string/events_menu_title" />
     </group>
 </menu>

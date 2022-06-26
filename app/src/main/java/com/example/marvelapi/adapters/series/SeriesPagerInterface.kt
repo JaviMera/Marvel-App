@@ -7,3 +7,4 @@ import com.example.marvelapi.models.series.Series
 interface SeriesPagerInterface{
     fun seriesPagingData(): LiveData<PagingData<Series>>
 }
+
