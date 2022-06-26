@@ -54,33 +54,33 @@ class Application : Application(), KoinComponent {
                 factory { provideMoshi() }
 
                 single{
-                    NetworkCharactersRepository(get() as MarvelCharactersInterface)
+                    NetworkCharactersRepository(get() as MarvelCharactersInterface) as NetworkCharactersInterface
                 }
                 single{
-                    NetworkComicsRepository(get() as MarvelComicsInterface)
-                }
-
-                single{
-                    NetworkSeriesRepository(get() as MarvelSeriesInterface)
-                }
-                single{
-                    NetworkEventsRepository(get() as MarvelEventsInterface)
+                    NetworkComicsRepository(get() as MarvelComicsInterface) as NetworkComicsInterface
                 }
 
                 single{
-                    CharactersPagerRepository(get() as NetworkCharactersInterface)
+                    NetworkSeriesRepository(get() as MarvelSeriesInterface) as NetworkSeriesInterface
+                }
+                single{
+                    NetworkEventsRepository(get() as MarvelEventsInterface) as NetworkEventsInterface
                 }
 
                 single{
-                    ComicsPagerRepository(get() as NetworkComicsInterface)
+                    CharactersPagerRepository(get() as NetworkCharactersInterface) as CharactersPagerInterface
                 }
 
                 single{
-                    SeriesPagerRepository(get() as NetworkSeriesInterface)
+                    ComicsPagerRepository(get() as NetworkComicsInterface) as ComicsPagerInterface
                 }
 
                 single{
-                    EventsPagerRepository(get() as NetworkEventsInterface)
+                    SeriesPagerRepository(get() as NetworkSeriesInterface) as SeriesPagerInterface
+                }
+
+                single{
+                    EventsPagerRepository(get() as NetworkEventsInterface) as EventsPagerInterface
                 }
 
                 viewModel {
