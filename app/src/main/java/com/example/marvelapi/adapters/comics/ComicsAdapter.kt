@@ -6,12 +6,13 @@ import com.example.marvelapi.common.RecyclerAdapterBase
 import com.example.marvelapi.common.RecyclerBindingInterface
 import com.example.marvelapi.databinding.ComicListItemBinding
 
-class ComicsAdapter : RecyclerAdapterBase<Comic, ComicListItemBinding>(
+class ComicsAdapter(private val onItemClickListener: OnItemClickListener) : RecyclerAdapterBase<Comic, ComicListItemBinding>(
     object: RecyclerBindingInterface<Comic, ComicListItemBinding> {
         override fun bind(item: Comic, binder: ComicListItemBinding) {
             binder.comic = item
             binder.executePendingBindings()
         }
     },
+    onItemClickListener,
     R.layout.comic_list_item
 )

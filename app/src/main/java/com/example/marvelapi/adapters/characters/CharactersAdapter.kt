@@ -6,13 +6,15 @@ import com.example.marvelapi.common.RecyclerBindingInterface
 import com.example.marvelapi.databinding.CharacterListItemBinding
 import com.example.marvelapi.models.characters.Character
 
-class CharactersAdapter : RecyclerAdapterBase<Character, CharacterListItemBinding>(
+class CharactersAdapter(private val onItemClickListener: OnItemClickListener)
+    : RecyclerAdapterBase<Character, CharacterListItemBinding>(
     object: RecyclerBindingInterface<Character, CharacterListItemBinding> {
         override fun bind(item: Character, binder: CharacterListItemBinding) {
             binder.character = item
             binder.executePendingBindings()
         }
     },
+    onItemClickListener,
     R.layout.character_list_item
 )
 

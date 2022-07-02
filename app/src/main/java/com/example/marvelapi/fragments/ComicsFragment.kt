@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.marvelapi.adapters.comics.ComicsAdapter
+import com.example.marvelapi.common.RecyclerAdapterBase
 import com.example.marvelapi.viewmodels.comics.ComicsViewModel
 import com.example.marvelapi.databinding.FragmentComicsBinding
 import kotlinx.coroutines.launch
@@ -31,7 +32,9 @@ class ComicsFragment : Fragment() {
         _binding = FragmentComicsBinding.inflate(layoutInflater, container, false)
         binding.lifecycleOwner = this
 
-        val adapter = ComicsAdapter()
+        val adapter = ComicsAdapter(RecyclerAdapterBase.OnItemClickListener {
+
+        })
         binding.comicsList.adapter = adapter
 
         comicsViewModel.getComics().observe(viewLifecycleOwner){

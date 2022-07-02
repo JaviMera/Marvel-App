@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.example.marvelapi.R
 import com.example.marvelapi.adapters.series.SeriesAdapter
+import com.example.marvelapi.common.RecyclerAdapterBase
 import com.example.marvelapi.databinding.FragmentSeriesBinding
 import com.example.marvelapi.viewmodels.series.SeriesViewModel
 import kotlinx.coroutines.launch
@@ -33,7 +34,9 @@ class SeriesFragment : Fragment() {
         _binding = FragmentSeriesBinding.inflate(layoutInflater, container, false)
         binding.lifecycleOwner = this
 
-        val adapter = SeriesAdapter()
+        val adapter = SeriesAdapter(RecyclerAdapterBase.OnItemClickListener {
+
+        })
         binding.seriesList.adapter = adapter
 
         seriesViewModel.getSeries().observe(viewLifecycleOwner){

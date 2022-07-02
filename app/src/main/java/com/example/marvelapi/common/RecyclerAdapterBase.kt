@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 open class RecyclerAdapterBase<TItem : MarvelItemBase, TViewBinding : ViewDataBinding>(
     private val bindingInterface: RecyclerBindingInterface<TItem, TViewBinding>,
+    private val onItemClickListener: OnItemClickListener,
     @LayoutRes val layoutId: Int
 ) : PagingDataAdapter<TItem, RecyclerAdapterBase.MarvelViewHolder>(DiffCallbackBase()){
 
@@ -19,8 +20,17 @@ open class RecyclerAdapterBase<TItem : MarvelItemBase, TViewBinding : ViewDataBi
             bindingInterface: RecyclerBindingInterface<TItem, TViewBinding>
         ) = bindingInterface.bind(item, binding as TViewBinding)
     }
+
+    class OnItemClickListener(val clickListener: (movieId: Int) -> Unit){
+        fun onClick(movieId: Int) = clickListener(movieId)
+    }
     override fun onBindViewHolder(holder: MarvelViewHolder, position: Int) {
         val item = getItem(position) as TItem
+        holder.itemView.setOnClickListener {
+            item.id.let {
+                onItemClickListener.onClick(it)
+            }
+        }
         holder.bind(item, bindingInterface)
     }
 
