@@ -12,8 +12,8 @@ import com.example.marvelapi.models.Thumbnail
 val pattern = "\\(([^)]+)\\)".toRegex()
 
 @BindingAdapter("showPoster")
-fun bindPictureOfDay(imageView: ImageView, thumbnail: Thumbnail){
-    if(thumbnail.path == null){
+fun bindCharacterThumbnail(imageView: ImageView, thumbnail: Thumbnail?){
+    if(thumbnail?.path == null){
         imageView.setImageResource(R.drawable.character_image_error)
     }else{
         Glide.with(imageView.context)

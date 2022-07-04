@@ -84,7 +84,7 @@ class Application : Application(), KoinComponent {
                 }
 
                 viewModel {
-                    CharactersViewModel(get() as CharactersPagerInterface)
+                    CharactersViewModel(get() as CharactersPagerInterface, get() as NetworkCharactersInterface)
                 }
 
                 viewModel {

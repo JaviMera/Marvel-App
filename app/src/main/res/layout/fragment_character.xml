@@ -1,21 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="character"
+            type="com.example.marvelapi.models.characters.Character" />
     </data>
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/character_fragment_constraint_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".fragments.characters.CharacterFragment">
+        android:layout_height="match_parent">
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/character_coordinator_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:context=".fragments.characters.CharacterFragment">
 
-    </FrameLayout>
+            <ImageView
+                android:id="@+id/character_image"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:contentDescription="@string/character_image_profile"
+                android:scaleType="centerCrop"
+                app:showPoster="@{character.thumbnail}"
+                tools:src="@mipmap/character_image_sample" />
+
+            <TextView
+                android:id="@+id/character_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:characterName="@{character}"
+                android:layout_gravity="start|bottom"
+                android:padding="@dimen/small_padding_dimen"
+                tools:text="Stephen Strange" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <TextView
+            android:id="@+id/character_superhero_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/medium_text_size_dimen"
+            android:padding="@dimen/small_padding_dimen"
+            android:textStyle="bold"
+            app:superheroName="@{character}"
+            app:layout_constraintTop_toBottomOf="@id/character_coordinator_layout"
+            app:layout_constraintStart_toStartOf="@id/character_coordinator_layout"
+            app:layout_constraintEnd_toEndOf="@id/character_coordinator_layout"
+            tools:text="Dr Strange"/>
+
+        <TextView
+            android:id="@+id/character_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:paddingStart="@dimen/small_padding_dimen"
+            android:paddingEnd="@dimen/small_padding_dimen"
+            android:textSize="@dimen/small_text_size_dimen"
+            android:textAlignment="textStart"
+            android:text="@{character.description}"
+            app:layout_constraintTop_toBottomOf="@id/character_superhero_name"
+            app:layout_constraintStart_toStartOf="@id/character_superhero_name"
+            app:layout_constraintEnd_toEndOf="@id/character_superhero_name"
+            tools:text="Dr Strange is the most dumbass superhero in the history of Marvel."/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

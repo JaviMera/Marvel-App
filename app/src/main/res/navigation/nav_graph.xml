@@ -34,8 +34,7 @@
         android:name="com.example.marvelapi.fragments.characters.CharacterFragment"
         android:label="CharacterFragment" >
         <argument
-            android:name="characterId"
-            app:argType="integer"
-            android:defaultValue="0" />
+            android:name="character"
+            app:argType="com.example.marvelapi.models.characters.Character" />
     </fragment>
 </navigation>

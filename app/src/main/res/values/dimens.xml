@@ -4,6 +4,7 @@
     <dimen name="small_image_item_dimen">250dp</dimen>
     <dimen name="small_padding_dimen">16dp</dimen>
     <dimen name="small_text_size_dimen">16sp</dimen>
+    <dimen name="medium_text_size_dimen">24sp</dimen>
     <dimen name="x_small_text_size_dimen">8sp</dimen>
     <dimen name="nav_bar_height">176dp</dimen>
     <dimen name="medium_margin_dimen">8dp</dimen>

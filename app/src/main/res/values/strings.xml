@@ -9,4 +9,5 @@
     <string name="comics_menu_title">Comics</string>
     <string name="series_menu_title">Series</string>
     <string name="events_menu_title">Events</string>
+    <string name="character_image_profile">Character image profile</string>
 </resources>

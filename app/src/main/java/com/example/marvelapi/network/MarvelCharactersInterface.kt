@@ -13,8 +13,7 @@ interface MarvelCharactersInterface{
 
     @GET("v1/public/characters/{character_id}")
     suspend fun getCharacter(
-        @Path("character_id") characterId: Int,
-        @Query("offset") offset:Int)
-    : Response<Character>
+        @Path("character_id") characterId: Int)
+    : Response<CharactersResponse>
 }
 
