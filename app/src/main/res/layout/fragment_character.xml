@@ -18,9 +18,9 @@
             android:id="@+id/character_coordinator_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             tools:context=".fragments.characters.CharacterFragment">
 
             <ImageView
@@ -32,46 +32,52 @@
                 app:showPoster="@{character.thumbnail}"
                 tools:src="@mipmap/character_image_sample" />
 
-            <TextView
-                android:id="@+id/character_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                app:characterName="@{character}"
-                android:layout_gravity="start|bottom"
-                android:padding="@dimen/small_padding_dimen"
-                tools:text="Stephen Strange" />
-
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
         <TextView
             android:id="@+id/character_superhero_name"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="@dimen/small_padding_dimen"
             android:textColor="@color/black"
             android:textSize="@dimen/medium_text_size_dimen"
-            android:padding="@dimen/small_padding_dimen"
             android:textStyle="bold"
-            app:superheroName="@{character}"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/character_coordinator_layout"
-            app:layout_constraintStart_toStartOf="@id/character_coordinator_layout"
-            app:layout_constraintEnd_toEndOf="@id/character_coordinator_layout"
-            tools:text="Dr Strange"/>
+            app:superheroName="@{character}"
+            tools:text="Dr Strange" />
+
+        <TextView
+            android:id="@+id/character_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/small_padding_dimen"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:characterName="@{character}"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintStart_toEndOf="@id/character_superhero_name"
+            app:layout_constraintTop_toTopOf="@id/character_superhero_name"
+            app:layout_constraintBottom_toBottomOf="@id/character_superhero_name"
+            tools:text="Stephen Strange" />
 
         <TextView
             android:id="@+id/character_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
             android:paddingStart="@dimen/small_padding_dimen"
             android:paddingEnd="@dimen/small_padding_dimen"
-            android:textSize="@dimen/small_text_size_dimen"
-            android:textAlignment="textStart"
+
             android:text="@{character.description}"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="@dimen/small_text_size_dimen"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/character_superhero_name"
-            app:layout_constraintStart_toStartOf="@id/character_superhero_name"
-            app:layout_constraintEnd_toEndOf="@id/character_superhero_name"
-            tools:text="Dr Strange is the most dumbass superhero in the history of Marvel."/>
+            tools:text="Dr Strange is the most dumbass superhero in the history of Marvel." />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
