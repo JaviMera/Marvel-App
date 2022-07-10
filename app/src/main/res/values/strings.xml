@@ -10,4 +10,5 @@
     <string name="series_menu_title">Series</string>
     <string name="events_menu_title">Events</string>
     <string name="character_image_profile">Character image profile</string>
+    <string name="item_menu_search">Search</string>
 </resources>

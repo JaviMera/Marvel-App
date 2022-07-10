@@ -28,6 +28,7 @@
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/layout/fragment_characters.xml" value="0.2869791666666667" />
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/layout/fragment_comics.xml" value="0.33695652173913043" />
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/layout/fragment_events.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/layout/fragment_search.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/layout/fragment_series.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/layout/fragment_stories.xml" value="0.19655521783181357" />
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/layout/nav_header.xml" value="0.4041666666666667" />
@@ -35,6 +36,8 @@
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/layout/nav_header_nav_drawer.xml" value="0.11702127659574468" />
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/layout/series_list_item.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/layout/stories_list_item.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/menu/fragment_menu.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/menu/main_activity.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/menu/navigation.xml" value="0.30234375" />
         <entry key="..\:/Users/javier/StudioProjects/Marvel-App/app/src/main/res/mipmap-anydpi-v26/character_image_sample.xml" value="0.1475" />
       </map>

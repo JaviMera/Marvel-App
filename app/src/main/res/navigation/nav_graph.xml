@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_characters_fragment_to_characterFragment"
             app:destination="@id/characterFragment" />
+        <action
+            android:id="@+id/action_characters_fragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/comics_fragment"
@@ -37,5 +40,13 @@
         <argument
             android:name="character_id"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.marvelapi.fragments.search.SearchFragment"
+        android:label="SearchFragment" >
+        <argument
+            android:name="searchType"
+            app:argType="string" />
     </fragment>
 </navigation>
