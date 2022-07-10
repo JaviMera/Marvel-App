@@ -14,51 +14,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:id="@+id/character_coordinator_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+        <ImageView
+            android:id="@+id/character_image"
+            style="@style/FragmentCharacterImage"
+            android:contentDescription="@string/character_image_profile"
+            app:showPoster="@{character.thumbnail}"
             app:layout_constraintTop_toTopOf="parent"
-            tools:context=".fragments.characters.CharacterFragment">
-
-            <ImageView
-                android:id="@+id/character_image"
-                android:layout_width="match_parent"
-                android:layout_height="350dp"
-                android:contentDescription="@string/character_image_profile"
-                android:scaleType="centerCrop"
-                app:showPoster="@{character.thumbnail}"
-                tools:src="@mipmap/character_image_sample" />
-
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:src="@mipmap/character_image_sample" />
 
         <TextView
             android:id="@+id/character_superhero_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/small_padding_dimen"
-            android:textColor="@color/black"
-            android:textSize="@dimen/medium_text_size_dimen"
-            android:textStyle="bold"
-            android:maxLines="1"
-            android:ellipsize="end"
+            style="@style/FragmentCharacterSuperheroName"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/character_coordinator_layout"
+            app:layout_constraintTop_toBottomOf="@id/character_image"
             app:superheroName="@{character}"
             tools:text="Dr Strange" />
 
         <TextView
             android:id="@+id/character_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/small_padding_dimen"
-            android:textColor="@color/black"
-            android:textSize="24sp"
+            style="@style/FragmentCharacterName"
             app:characterName="@{character}"
-            android:maxLines="1"
-            android:ellipsize="end"
             app:layout_constraintStart_toEndOf="@id/character_superhero_name"
             app:layout_constraintTop_toTopOf="@id/character_superhero_name"
             app:layout_constraintBottom_toBottomOf="@id/character_superhero_name"
@@ -66,15 +43,8 @@
 
         <TextView
             android:id="@+id/character_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="@dimen/small_padding_dimen"
-            android:paddingEnd="@dimen/small_padding_dimen"
-
+            style="@style/FragmentCharacterDescription"
             android:text="@{character.description}"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:textSize="@dimen/small_text_size_dimen"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/character_superhero_name"

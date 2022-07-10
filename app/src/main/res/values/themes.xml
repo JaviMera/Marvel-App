@@ -61,4 +61,41 @@
 
     <style name="Theme.NavDrawerSample.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.NavDrawerSample.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="FragmentCharacterImage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/fragment_character_image_height</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="FragmentCharacterName">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:padding">@dimen/small_padding_dimen</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/medium_text_size_dimen</item>
+    </style>
+
+    <style name="FragmentCharacterSuperheroName">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:padding">@dimen/small_padding_dimen</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/medium_text_size_dimen</item>
+    </style>
+
+    <style name="FragmentCharacterDescription">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">@dimen/small_padding_dimen</item>
+        <item name="android:paddingEnd">@dimen/small_padding_dimen</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/small_text_size_dimen</item>
+        <item name="android:textAlignment">textStart</item>
+    </style>
 </resources>

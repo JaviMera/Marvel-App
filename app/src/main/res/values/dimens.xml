@@ -9,4 +9,5 @@
     <dimen name="nav_bar_height">176dp</dimen>
     <dimen name="medium_margin_dimen">8dp</dimen>
     <dimen name="high_image_item_dimen">400dp</dimen>
+    <dimen name="fragment_character_image_height">350dp</dimen>
 </resources>
