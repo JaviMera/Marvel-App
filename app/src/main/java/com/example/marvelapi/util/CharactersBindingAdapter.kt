@@ -30,7 +30,9 @@ fun bindCharacterThumbnail(imageView: ImageView, thumbnail: Thumbnail?){
 fun bindCharacterName(textView: TextView, character: Character?){
 
     character?.let {
-        textView.text = "(${pattern.find(it.name)?.groupValues?.get(1) ?: ""})"
+        pattern.find(it.name)?.groupValues?.get(1)?.let { characterName ->
+            textView.text = "($characterName)"
+        }
     }
 }
 
