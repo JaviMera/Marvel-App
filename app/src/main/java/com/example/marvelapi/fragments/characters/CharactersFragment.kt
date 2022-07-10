@@ -34,7 +34,7 @@ class CharactersFragment : Fragment() {
         binding.lifecycleOwner = this
 
         val adapter = CharactersAdapter(RecyclerAdapterBase.OnItemClickListener {
-            charactersViewModel.getCharacter(it)
+            findNavController().navigate(CharactersFragmentDirections.actionCharactersFragmentToCharacterFragment(it))
         })
         binding.charactersList.adapter = adapter
 
@@ -42,10 +42,6 @@ class CharactersFragment : Fragment() {
             lifecycleScope.launch {
                 adapter.submitData(it)
             }
-        }
-
-        charactersViewModel.character.observe(viewLifecycleOwner){
-            findNavController().navigate(CharactersFragmentDirections.actionCharactersFragmentToCharacterFragment(it))
         }
 
         return binding.root

@@ -27,16 +27,22 @@ fun bindCharacterThumbnail(imageView: ImageView, thumbnail: Thumbnail?){
 }
 
 @BindingAdapter("characterName")
-fun bindCharacterName(textView: TextView, character: Character){
-    textView.text = pattern.find(character.name)?.groupValues?.get(1) ?: ""
+fun bindCharacterName(textView: TextView, character: Character?){
+
+    character?.let {
+        textView.text = "(${pattern.find(it.name)?.groupValues?.get(1) ?: ""})"
+    }
 }
 
 @BindingAdapter("superheroName")
-fun bindSuperheroName(textView: TextView, character: Character){
-    textView.text =
-        if(character.name.contains('(')){
-            character.name.split('(')[0]
-        }else{
-             character.name
-        }
+fun bindSuperheroName(textView: TextView, character: Character?){
+
+    character?.let {
+        textView.text =
+            if(it.name.contains('(')){
+                it.name.split('(')[0]
+            }else{
+                 it.name
+            }
+    }
 }
